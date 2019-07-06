@@ -1,0 +1,30 @@
+I. #include <string>
+string n;
+Gdy kompilator nie zna nazwy string:
+- należy dodać na początku kwalifikator zakresu std:: (std::string)
+- albo użyć dyrektywy using namespace std;
+
+II. Plik nagłówkowy <string> to nie jest nowsza wersja <string.h>. Pliki te zawierają zupełnie inną treść. W nowoczesnej wersji C++ deklaracje klas bibliotecznych są umieszczane w plikach nagłówkowych, których nazwy nie mają końcówki .h.
+
+III. C-string jest stałą dosłowną (czyli ciągiem znaków). Nie jest obiektem. W języku C i starym C++ ciągi znaków umieszczało się w tablicy char.
+
+IV. string - operatory których można używać na obiektach tej klasy:
++ // można łączyć ze sobą dwa stringi lub dodawać stałe dosłowne
+= // można tak inicjalizować lub kopiować jakiś string do innego stringu, lub przypisać jakiś znak
++= // podobnie jak w dodawaniu
+==, !=, < , > , <= , >= // porównywanie stringów wg porządku alfabetycznego
+[] // odniesienie się do jednego znaku w stringu, ale bez błędu, gdy jest out_of_range
+>> // stosowany z cin (wczytanie z klawiatury), białe znaki z początku są ignorowane, wczytywane są znaki do momentu napotkania białego znaku (w tym nowej linii), reszta oczekuje do następnej operacji wczytania
+<< // wypisanie na ekran lub umieszczenie w pliku tekstowym
+
+string - operatory, których nie można zastosować na obiektach tej klasy:
+!
+/
+^
+&&
+
+V. Poprawne definicje string: (nie można inicjalizować konstruktora przy pomocy pojedynczego znaku char ale można to zrobić )
+string a("123");
+string c = "XYZ";
+
+VI. Przesyłanie string do funkcji = zostaje przesłane przez wartość (funkcja otrzymuje kopię obiektu string). Aby funkcja mogła dokonywać zmian na oryginalnym stringu należy przesłać jej string przez referencję (&) czyli jego adres.
