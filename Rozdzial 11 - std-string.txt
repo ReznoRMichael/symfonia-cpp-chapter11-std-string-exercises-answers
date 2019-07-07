@@ -28,3 +28,66 @@ string a("123");
 string c = "XYZ";
 
 VI. Przesyłanie string do funkcji = zostaje przesłane przez wartość (funkcja otrzymuje kopię obiektu string). Aby funkcja mogła dokonywać zmian na oryginalnym stringu należy przesłać jej string przez referencję (&) czyli jego adres.
+
+VII. string - długie wyrazy w cin. Klasa string sama sobie dynamicznie rezerwuje potrzebną ilość w pamięci. Jednak jeśli spodziewamy się długiego wyrazu w cin, możemy wykorzystać funkcję składową reserve() oraz podać jej minimalną długość rezerwacji. Np. Tstring.reserve(50); zarezerwuje od razu miejsce na minimum 50 znaków.
+
+VIII. Jak inicjalizować string od razu pojedynczym znakiem z istniejącego już obiektu char:
+char litera = 'c';
+string Tstring( 1, litera ); // inicjalizowanie przy pomocy konstruktora służącego do wypełniania obiektu jakąś ilością znaków
+
+IX. Niepoprawne definicje size_type:
+int m = 4;
+int p = 6;
+size_type c = m - p; // size_type to jakiś typ unsigned (bez znaku) więc nie może być ujemny
+
+X. Rezultaty funkcji size() i length() - różnice:
+W przypadku obiektów string nie ma żadnych różnic. Obie funkcje podają tę samą wartość. Jest to wartość mówiąca z ilu znaków składa się nasz tekst.
+
+XI. Funkcja empty(). Jeśli length() stringa wynosi 25, to funkcja empty() zwróci wartość false. (bool)
+
+XII. Funkcja max_size(). Jeśli wywołana na rzecz jakiegoś obiektu, poda nam, jaka może być maksymalna możliwa (całkowita) długość danego stringu.
+
+XIII. Funkcje max_size() i capacity() - różnice:
+max_size():
+- informuje jaki najdłuższy tekst można przechować w danym obiekcie string (czyli pośrednio o ilości dostępnej pamięci komputera)
+capacity():
+- informuje, jaki w danym momencie obszar pamięci zarezerwował sobie obiekt string. Jeśli string jest pusty, to nie musi rezerwować pamięci.
+Różnica: max_size() pokazuje maksymalną możliwą pamięć, a capacity() aktualnie zarezerwowaną dla danego obiektu.
+
+XIV. Dopisując coś do stringa przy pomocy operatora += nie trzeba dodatkowo rezerwować pamięci na dołączany string - klasa string zrobi to za nas automatycznie.
+
+XV. Funkcje reserve() i resize() - różnice:
+reserve():
+- rezerwuje dodatkową pamięć dla danego obiektu string o wybranej wielkości (czyli powiększa jego rozmiar). String automatycznie rezerwuje sobie pamięć, ale my możemy to również zrobić manualnie tą funkcją.
+resize():
+- powoduje zmianę długości ciągu znaków przechowywanego w obiekcie string. Można ten obiekt skrócić lub powiększyć (nawet usuwając już istniejące znaki). Dodatkowo można także zapełnić nowe miejsca po zwiększeniu rozmiaru jakimś konkretnym znakiem.
+Różnica: resize() powiększa rozmiar przechowywanej w pojemniku zawartości, a nie tylko sam rozmiar pojemnika. Czyli zapełnia cały pojemnik string znakami null. Klasa string sama pamięta, gdzie się kończy dany ciąg znaków, nie decyduje o tym znak null.
+
+XVI. Funkcja clear() - treść obiektu klasy string jest kasowana. Nie każdy kompilator dodaje tę funkcję. Można ją zastąpić łatwo poprzez:
+string = "";
+
+XVII. (Program)
+Operator [] jest szybszy, ale nie sprawdza poprawności odczytywanego znaku. Trzeba uważać.
+Funkcja at() sprawdza poprawność odczytywanego znaku, i jeśli jest nieprawidłowa, rzuca wyjątkiem, oraz kończy działanie programu.
+
+XVIII. Funkcja substr() - można za jej pomocą wydobyć jakiś fragment stringu (substring / podciąg) zaczynający się od określonej pozycji oraz o określonej długości. Można też wydobyć cały fragment od konkretnej pozycji do końca, używając string::npos.
+Przykład: string.substr( pozycja, dlugosc );
+Rezultat jest zapisywany do nowego stringu.
+
+XIX. Funkcja rfind() - znajduje ostatnie wystąpienie jakiegoś znaku w stringu. Np. string.rfind( '.' );
+
+XX. Gdy funkcje find() odpowiadają wartością string::npos oznacza to, że poszukiwana fraza lub znak nie zostały znalezione w stringu. (npos = infinite position)
+
+XXI. Jeśli jako argument dla funkcji która ma operować na jakiejś określonej liczbie znaków wyślemy wartość string::npos oznacza to, że mają wykonać operację do samego końca danego stringu.
+
+XXII. Funkcje:
+find_first_of() = szuka pierwszego wystąpienia jednego ze znaków z zestawu, posuwa się od początku
+find_first_not_of() = szuka pierwszego wystąpienia jednego ze znaków spoza zestawu, posuwa się od początku
+find_last_of() = szuka ostatniego wystąpienia jednego ze znaków z zestawu, posuwa się od końca
+find_last_not_of() = szuka ostatniego wystąpienia jednego ze znaków spoza zestawu, posuwa się od końca
+
+XXIII. Jeśli w funkcjach składowych operujących na stringach podamy:
+- za dużą pozycję znaku - funkcja rzuci wyjątkiem out_of_range, bo nie będzie wiedziała, gdzie ma zacząć pracę
+- za dużą ilość znaków do pracy - funkcja wykona grzecznie pracę tak długo aż się da, tutaj nie ma problemu
+
+XXIV. 
