@@ -90,4 +90,44 @@ XXIII. Jeśli w funkcjach składowych operujących na stringach podamy:
 - za dużą pozycję znaku - funkcja rzuci wyjątkiem out_of_range, bo nie będzie wiedziała, gdzie ma zacząć pracę
 - za dużą ilość znaków do pracy - funkcja wykona grzecznie pracę tak długo aż się da, tutaj nie ma problemu
 
-XXIV. 
+XXIV. Funkcja insert() - bardzo często wykorzystywana funkcja do wstawiania dodatkowego tekstu w już istniejący string. Po wstawieniu w string począwszy od znaku piątego innych znaków, znaki które znajdowały się za piątym zostaną odpowiednio przesunięte, a sam string się powiększy. Znaki nie są zastępowane.
+
+XXV. Funkcja replace() - funkcja do zastępowania jednego ciągu znaków w stringu innym ciągiem znaków. Można zastąpić np. 1 znak sekwencją 500 znaków, jak i na odwrót. Jeśli wstawimy 5 nowych znaków w miejsce znaków piątego i szóstego, to piąty i szósty zostaną zastąpione nowym ciągiem znaków, a znak siódmy stanie się znakiem 11.
+
+XXVI. Przesyłanie obiektów klasy string do funkcji w programie, która akceptuje C-string:
+Posługujemy się funkcją c_str(); Np. string.c_str(); Można to zrobić nawet bezpośrednio w wywołaniu funkcji: funkcjaBiblioteczna( string.c_str() );
+
+XXVII. Funkcje data() oraz c_str() mają ten sam typ rezultatu const char * oraz pozwalają nam poznać bieżącą zawartość obiektu string. (bieżącą, gdyż obiekty i adresy te się zmieniają)
+Różnice między nimi:
+- c_str() przygotowuje kopię znaków w osobnej tablicy zakończonej znakiem null.
+- rezultat jest typu const, gdyż sam C-string w C++ jest typu const char*.
+- data() zwraca adres oryginalnej tablicy w której obiekt klasy string obecnie przechowuje tekst. Ciąg znaków nie musi być zakończony znakiem null.
+- rezultat jest typu const, gdyż nie zezwala się na bezpośrednią modyfikację tego obiektu poza samą klasą.
+
+XXVIII. Z rezultatów funkcji c_str() oraz data() należy skorzystać od razu, gdyż:
+- funkcje te zwracają adres obiektu string jedynie w aktualnym stanie w momencie ich wywołania
+- obiekt string jak i jego adres mogą się dynamicznie zmieniać w miarę pracy nad tym obiektem
+
+XXIX. Porównywanie stringów funkcją compare() oraz operatorami <, >, <=, >=, !=, ==
+Wszystkie z nich są czułe na małe i wielkie litery (wielkie litery występują wcześniej niż małe w tablicy ASCII)
+
+XXX. Funkcja compare() może zwrócić jedną z trzech wartości: -1, 0, 1.
+-1 = oznacza, że string na rzecz którego wywołano funkcję występuje wcześniej w kolejności alfabetycznej niż argument funkcji
+0 = oznacza, że wystąpił w tym samym momencie
+1 = oznacza, że wystąpił później w kolejności
+
+XXXI. Porównywanie stringów operatorami <, >, <=, >=, !=, == zwraca dwie możliwe wartości: 0, 1.
+0 = oznacza, że warunek nie jest prawdziwy
+1 = oznacza, że warunek się spełnił
+Warunki:
+s1 == s2 ; czy stringi s1 i s2 są takie same?
+s1 != s2 ; czy stringi s1 i s2 są różne?
+s1 <  s2 ; czy wg kolejności alfabetycznej s1 stoi przed stringiem s2?
+s1 >  s2 ; czy wg kolejności alfabetycznej s1 stoi po stringu s2?
+s1 <= s2 ; czy wg kolejności alfabetycznej s1 stoi na pozycji mniejszej lub równej pozycji s2?
+s1 >= s2 ; czy wg kolejności alfabetycznej s1 stoi na pozycji większej lub równej pozycji s2?
+
+XXXII. Za pomocą operatorów <, >, <=, >=, !=, ==  można dokonać porównania w którym po lewej stronie stoi C-string a po prawej string. Przynajmniej po jednej ze stron musi stać obiekt klasy string aby było możliwe takie porównanie.
+Nie można porównać ze sobą jedynie dwóch C-stringów w taki sposób.
+
+XXXIII. Funkcja, którą można wywołać z dwoma argumentami string i dokonująca ich porównania wg porządku alfabetycznego - ale nieczuła na wielkość liter. Powinna zwracać rezultat podobny do rezultatu funkcji compare(). (program)
