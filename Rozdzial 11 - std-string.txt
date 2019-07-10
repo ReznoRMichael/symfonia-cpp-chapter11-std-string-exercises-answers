@@ -131,3 +131,27 @@ XXXII. Za pomocą operatorów <, >, <=, >=, !=, ==  można dokonać porównania 
 Nie można porównać ze sobą jedynie dwóch C-stringów w taki sposób.
 
 XXXIII. Funkcja, którą można wywołać z dwoma argumentami string i dokonująca ich porównania wg porządku alfabetycznego - ale nieczuła na wielkość liter. Powinna zwracać rezultat podobny do rezultatu funkcji compare(). (program)
+
+XXXIV. Kopiowanie treści obiektu klasy string do tablicy char - można to zrobić przy pomocy funkcji copy(). Działa ona podobnie do funkcji replace() - kopiuje i wymienia zawartość tablicy char od zadanego momentu o określoną ilość znaków. Funkcja ta nie robi dokładnej kopii danego obiektu string, nie dodaje tam również kończącego znaku null.
+
+35 - 37 — advanced knowledge (assign, append)
+
+XXXVIII. Funkcja getline() - wczytywanie jednej linii tekstu. Aby wczytać kilkanaście linii za jednym razem można użyć pętli.
+
+XXXIX. Funkcja getline() - ogranicznik. Ogranicznik jest potrzebny, aby funkcja wiedziała, na którym znaku ma zakończyć wpisywanie do stringu. Po napotkaniu na taki znak funkcja kończy pracę automatycznie oraz wyrzuca go ze strumienia, pozostawiając jedynie całą wcześniejszą zawartość strumienia w stringu. Domyślnym ogranicznikiem jest znak nowej linii \n.
+
+XL. Funkcja getline() może wczytać ze strumienia pozostające tam wciąż białe znaki.
+
+XLI. Biały znak może być ogranicznikiem funkcji getline(). Jest nim np. domyślny znak nowej linii \n.
+
+XLII. Różnice między operatorem wczytywania >> oraz funkcją getline(). Operator >> przed wczytaniem do strumienia usuwa wszelkie wcześniejsze białe znaki, nie bierze ich również pod uwagę (można wpisać jedynie jeden ciąg liter/cyfr za jednym razem). Funkcja getline() nie usuwa tych znaków wcześniej pozostających w strumieniu, dlatego trzeba mieć to na uwadze podczas pracy z tą funkcją. Trzy sposoby radzenia sobie:
+- użyć funkcji getline dwukrotnie pod rząd
+- uczynić ogranicznikiem inny znak np. 'v'
+- dla wtajemniczonych: skorzystać z funkcji ignore(); np. cin.ignore( 25, '\n');
+
+XLIII. Funkcja getline() nie jest funkcją składową klasy string, ale również nie musimy się przejmować rezerwacją miejsca na dłuższy string. Klasa string zadba o to sama.
+
+XLIV. Funkcja pokazująca na ekranie kolejno wszystkie znaki argumentu string, ujęte w nawiasy kwadratowe. (program)
+
+XLV. Funkcja, która z nazwy pliku w argumencie usunie ewentualne rozszerzenie i zwróci rezultat jako obiekt string. (program)
+Mój algorytm usuwa wszystkie rozszerzenia, nie tylko ostatnie. Jeśli nie było żadnych rozszerzeń do usuwania, to zwraca nazwę bez zmian.

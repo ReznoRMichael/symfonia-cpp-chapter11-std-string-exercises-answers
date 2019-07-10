@@ -14,6 +14,8 @@ Learning C++. Doing all exercises and answering all questions from Chapter 11 of
 
 ## Things to go back after gaining more knowledge
 
+* 35 - 37 — advanced knowledge (assign, append)
+
 ## Contact
 
 [ReznoRMichael](https://github.com/ReznoRMichael)
