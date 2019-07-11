@@ -15,6 +15,8 @@ Learning C++. Doing all exercises and answering all questions from Chapter 11 of
 ## Things to go back after gaining more knowledge
 
 * 35 - 37 — advanced knowledge (assign, append)
+* 49 — refactor code for finding only specific .poly extension (not .polygon etc.)
+* 50 - 55 — advanced knowledge ( string in arrays )
 
 ## Contact
 

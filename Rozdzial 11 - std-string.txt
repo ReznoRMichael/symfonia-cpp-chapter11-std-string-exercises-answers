@@ -155,3 +155,15 @@ XLIV. Funkcja pokazująca na ekranie kolejno wszystkie znaki argumentu string, u
 
 XLV. Funkcja, która z nazwy pliku w argumencie usunie ewentualne rozszerzenie i zwróci rezultat jako obiekt string. (program)
 Mój algorytm usuwa wszystkie rozszerzenia, nie tylko ostatnie. Jeśli nie było żadnych rozszerzeń do usuwania, to zwraca nazwę bez zmian.
+
+XLVI. Funkcja, która poleca użytkownikowi wprowadzenie nazwy pliku oraz sprawdzająca czy jest tam rozszerzenie .txt. Jeśli nie ma, to dodaje. Jeśli jest rozszerzenie, ale inne, to trzeba je zamienić na .txt. Zwraca rezultat jako string ze zmodyfikowaną nazwą pliku. (program)
+
+XLVII. Funkcja, która znaki parzyste w stringu zamieni na wielkie a nieparzyste na małe. Zwraca ten zmodyfikowany string. (program)
+
+XLVIII. Funkcja identyfikująca numer modułu wg znaku w nazwie modułu, zwracająca go w postaci int. (program)
+
+IL. Funkcja wywoływana argumentem string, zwracająca string. Analizuje nazwę pliku. (program) // note to self: refactor the code to find only .poly, not .polygon etc.
+
+L. Funkcja do której można wysłać długi, wielolinijkowy tekst. Funkcja powinna ten tekst wydrukować na ekranie, rozpoczynając każdą linijkę tekstem opisującym jej numer. (program) // do later after gaining more knowledge
+
+50 - 55 - advanced knowledge, do later after gaining more knowledge
